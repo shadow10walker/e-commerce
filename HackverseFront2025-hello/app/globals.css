@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Orange comme couleur principale */
+    --primary: 25 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Bleu foncé comme couleur secondaire */
+    --secondary: 220 70% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 25 30% 96%;
+    --muted-foreground: 220 8% 46%;
+
+    --accent: 220 70% 90%;
+    --accent-foreground: 220 70% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 25 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar specific colors */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 47% 11%;
+    --foreground: 0 0% 98%;
+
+    --card: 222.2 47% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 222.2 47% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Orange comme couleur principale en mode sombre */
+    --primary: 25 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Bleu foncé comme couleur secondaire en mode sombre */
+    --secondary: 220 70% 30%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 40% 18%;
+    --muted-foreground: 220 20% 70%;
+
+    --accent: 220 70% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 40% 18%;
+    --input: 220 40% 18%;
+    --ring: 25 100% 50%;
+
+    /* Sidebar specific colors */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Styles personnalisés pour les dégradés */
+.gradient-primary {
+  @apply bg-gradient-to-r from-orange-500 to-orange-600;
+}
+
+.gradient-secondary {
+  @apply bg-gradient-to-r from-blue-800 to-blue-900;
+}
+
+.gradient-mixed {
+  @apply bg-gradient-to-br from-orange-500 via-orange-400 to-blue-800;
+}
+
+.gradient-card {
+  @apply bg-gradient-to-br from-orange-50 to-blue-50 dark:from-orange-900/20 dark:to-blue-900/20;
+}
+
+.gradient-cta {
+  @apply bg-gradient-to-r from-orange-500 via-orange-600 to-blue-800;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-blue-800;
+}
+
+.shadow-colored {
+  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.15);
+}
+
+.shadow-colored-hover:hover {
+  box-shadow: 0 8px 20px rgba(255, 122, 0, 0.25);
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+.button-glow {
+  @apply relative overflow-hidden;
+}
+
+.button-glow::after {
+  content: "";
+  @apply absolute inset-0 rounded-md bg-white opacity-0 transition-opacity duration-300;
+}
+
+.button-glow:hover::after {
+  @apply opacity-20;
+}
